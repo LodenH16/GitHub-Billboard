@@ -21,4 +21,6 @@ If you like this check out my other stuff👀
 [LinkedIn](https://www.linkedin.com/in/thomas-loden-harris/)
 [Portfolio](https://tlhcodes.com)
 
+Shoutout to [@hgcummings](https://github.com/hgcummings/pixel-fonts), I modified your pixel font to work here
+
 p.s. I suggest you set "read and change site data" to "when clicked" 👍

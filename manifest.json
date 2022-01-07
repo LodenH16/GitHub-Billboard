@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+
+  "name": "GitHub Billboard",
+  "version": "1.0.0",
+  "description": "Turn your GitHub commits into a marquee billboard",
+  "icons": {
+    "32": "icon32.png",
+    "128": "icon128.png"
+  },
+
+  "content_scripts": [
+    {
+      "css": ["styles.css"],
+      "js": ["content.js"],
+      "matches": ["https://github.com/*"]
+    }
+  ]
+}

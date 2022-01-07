@@ -20,3 +20,5 @@ If you like this check out my other stuff👀
 
 [LinkedIn](https://www.linkedin.com/in/thomas-loden-harris/)
 [Portfolio](https://tlhcodes.com)
+
+p.s. I suggest you set "read and change site data" to "when clicked" 👍

@@ -1,4 +1,4 @@
-# GitHub-Billboard
+# 🦜 GitHub-Billboard
 This is my GitHub Billboard extension!
 
 To install:

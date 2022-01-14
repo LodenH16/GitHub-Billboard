@@ -115,55 +115,59 @@ const Letters = {
     [1, 0, 0, 0, 1],
   ],
 };
-
+let scroll;
 let message = prompt("What do you want to say?", "");
-let scroll = window.confirm("scroll?");
+message !== null ? (scroll = window.confirm("scroll?")) : null;
 
 const htmlCollectionGrid = document.getElementsByClassName(
   "js-calendar-graph-svg"
 )[0].children[0].children;
 
-billboard = Array.from(htmlCollectionGrid).filter((elem, index) => index < 53);
-verticalRows = Array.from(billboard);
+let billboard = Array.from(htmlCollectionGrid).filter(
+  (elem, index) => index < 53
+);
+let weeks = Array.from(billboard);
 
 //iterate through all cells and set them to 0
 const clearBoard = () => {
-  verticalRows.map((row, index) => {
-    Array.from(row.children).map((cell, index) => {
-      cell.setAttribute("data-level", "0");
+  weeks.map((row, index) => {
+    Array.from(row.children).map((day, index) => {
+      day.setAttribute("data-level", "0");
     });
   });
 };
 
 const writeToBillboard = (message, rowIndex) => {
   clearBoard();
-  let currentRow = rowIndex;
+  let currentWeek = rowIndex;
   message
     .toUpperCase()
     .split("")
-    .map((letter) => Letters[letter])
-    .map((letter, index) => {
-      letter.map((line, index) => {
-        let row = verticalRows[currentRow];
-        line.map((pixel, index) => {
-          if (currentRow >= 0 && currentRow < 53) {
-            Array.from(row.children)[index + 1].setAttribute(
-              "data-level",
-              line[index] ? "4" : "0"
-            );
+    .map((character) => Letters[character]) //turns message characters into pixel letters
+    .map((pixelLetter, index) => {
+      pixelLetter.map((pixelLine, index) => {
+        let week = weeks[currentWeek];
+        pixelLine.map((pixel, index) => {
+          if (currentWeek >= 0 && currentWeek < 53) {
+            if (Array.from(week.children)[index + 1]) {
+              Array.from(week.children)[index + 1].setAttribute(
+                "data-level",
+                pixelLine[index] ? "4" : "0"
+              );
+            }
           }
         });
+
         //move to next row
-        currentRow += 1;
+        currentWeek += 1;
       });
       //skip a line after a letter is complete
-      currentRow += 1;
+      currentWeek += 1;
     });
 };
 
 const scrollWrite = () => {
   let rowIndex = 53;
-  console.log(message);
   let interval = setInterval(() => {
     message
       ? writeToBillboard(message, rowIndex)

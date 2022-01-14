@@ -169,9 +169,7 @@ const writeToBillboard = (message, rowIndex) => {
 const scrollWrite = () => {
   let rowIndex = 53;
   let interval = setInterval(() => {
-    message
-      ? writeToBillboard(message, rowIndex)
-      : writeToBillboard(":( refresh to try again", rowIndex);
+    writeToBillboard(message, rowIndex);
     //check if rowIndex has extended far enough for all characters
     rowIndex < 0 - message.split("").length * 4
       ? //if true: reset

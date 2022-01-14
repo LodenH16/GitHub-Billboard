@@ -152,7 +152,7 @@ const writeToBillboard = (message, rowIndex) => {
             if (Array.from(week.children)[index + 1]) {
               Array.from(week.children)[index + 1].setAttribute(
                 "data-level",
-                pixelLine[index] ? "4" : "0"
+                pixel ? "4" : "0"
               );
             }
           }
